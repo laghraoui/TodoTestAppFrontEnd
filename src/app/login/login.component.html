@@ -1,0 +1,17 @@
+<h3>Login !</h3>
+<div class="container">
+    <div *ngIf='statut' class="alert alert-warning">{{errorMessage}}</div>
+
+    User name : <input type="text" name="username" [(ngModel)] = "username">
+    Password : <input type="password" name="password" [(ngModel)] = "password">
+
+    <!-- <button (event) = whatShouldYouDo()>button</button> -->
+
+    <button (click) = handleLogin() class="btn btn-success">button</button>  <!-- event binding -->
+</div>
+ <!-- <div>
+    <p>
+        {{username}}
+    </p>
+</div> -->
+ 

@@ -1,0 +1,39 @@
+<h4>
+  welcome {{ name }}
+</h4>
+
+<div class="container">
+  You can manage your todos list <a routerLink="/todos">Here</a>
+</div>
+
+<div class="container">
+  Click here to get a hello from the other side !
+  <button (click)="getWelcomeMsg()" class="btn btn-success">Get Welcome Msg</button>
+</div> 
+
+<div class="container" *ngIf="messageNomads">
+  <h4>This is the message that's came from the backEnd !</h4>
+  {{messageNomads}}
+</div>
+
+<div class="container" *ngIf="!messageNomads">
+  <h4>Oops!</h4>
+  {{errorNomads}}
+</div> 
+<!-- #########################################################################################"" -->
+<br>
+<br>
+<div class="container">
+  Click here to get another hello from the other side !
+  <button (click)="getWelcomeMsgWithParam()" class="btn btn-success">Get another welcome Msg</button>
+</div> 
+
+<div class="container" *ngIf="messageParam">
+  <h4>This is the other message comes from the backEnd !</h4>
+  {{messageParam}}
+</div>
+
+<div class="container" *ngIf="!messageParam">
+  <h4>Oops!</h4>
+  {{errorParam}}
+</div> 
