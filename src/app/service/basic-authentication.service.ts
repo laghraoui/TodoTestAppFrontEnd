@@ -25,24 +25,42 @@ export class BasicAuthenticationService {
     return false;
   } */
 
-  executeAuthenticationService(username, password){
+  /* executeAuthenticationService(username, password){
     /* we have created the basic auth string 
     and set it as a header in the call to the basic auth*/
-    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+   /*  let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
 
     let headers = new HttpHeaders({
       Authorization: basicAuthHeaderString
     })
     return this.http.get<AuthenticationBean>(
-      `${API_URL}/basicauth`, {headers})
+      `${API_URL}/basicauth`, {headers}) */
       /* if the service succeeds then do a specific thing throw pipe */
-      .pipe(
+      /* .pipe( */
         /* a pipe method allows us to declare what should be done if the request suceeds or if the requests fails.
            if there is a proper response coming back ! then map it */
-        map(
+       /*  map(
           data => {
             sessionStorage.setItem(AUTHENTICATED_USER, username);
             sessionStorage.setItem(TOKEN, basicAuthHeaderString);
+            return data;
+          }
+        )
+      ); */
+    /* 
+  } */
+
+  executeJWTAuthenticationService(username, password){
+    
+    return this.http.post<any>(
+      `${API_URL}/authenticate`,{
+        username,
+        password
+      }).pipe(
+        map(
+          data => {
+            sessionStorage.setItem(AUTHENTICATED_USER, username);
+            sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
             return data;
           }
         )
