@@ -1,5 +1,6 @@
 TodoTestAppFrontEnd
-this is the front-end app for my test application
+
+This is the front-end app for my test application
 
 it covers :
 
